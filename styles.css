@@ -1,0 +1,122 @@
+/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body and background */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, #74ebd5, #acb6e5);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Main container for form */
+.container {
+    background-color: #ffffff;
+    width: 400px;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: 0.3s ease;
+}
+
+/* Hover effect on the box */
+.container:hover {
+    transform: translateY(-10px);
+}
+
+/* Form title */
+h1 {
+    margin-bottom: 30px;
+    font-size: 26px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Role dropdown styling */
+.role-selection {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #f4f4f4;
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+/* Form input styling */
+.form input {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    font-size: 16px;
+    transition: border-color 0.2s;
+}
+
+/* Hover effect for input fields */
+.form input:focus {
+    border-color: #74ebd5;
+    outline: none;
+}
+
+/* Submit button styling */
+.submit-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #74ebd5;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #54d0b3;
+}
+
+/* Form switch link styling */
+.switch-form {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #666;
+}
+
+.switch-form a {
+    color: #74ebd5;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.switch-form a:hover {
+    color: #54d0b3;
+}
+
+/* Hidden form for toggling between login and signup */
+.hidden {
+    display: none;
+}
+
+/* Media query for responsiveness */
+@media (max-width: 500px) {
+    .container {
+        width: 90%;
+        padding: 20px;
+    }
+}

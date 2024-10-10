@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Modules</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f9;
+            padding: 20px;
+        }
+
+        /* Navbar Container */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            padding: 15px 20px;
+            margin-bottom: 20px; /* Space between navbar and content */
+        }
+
+        /* Logo */
+        .navbar .logo {
+            font-size: 24px;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Navbar links */
+        .navbar ul {
+            list-style: none;
+            display: flex;
+        }
+
+        .navbar ul li {
+            margin-left: 30px;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            padding: 8px 15px;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar ul li a:hover {
+            background-color: #555;
+            border-radius: 5px;
+        }
+
+        /* Search Icon */
+        .navbar .search-icon {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .search-icon input {
+            padding: 5px; /* Decreased padding for a smaller input */
+            border: none;
+            border-radius: 5px;
+            margin-right: 5px; /* Adjusted margin */
+            font-size: 14px; /* Font size of the input */
+        }
+
+        .navbar .search-icon button {
+            background-color: #74ebd5;
+            border: none;
+            color: white;
+            padding: 5px 8px; /* Decreased padding for a smaller button */
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar .search-icon button:hover {
+            background-color: #54d0b3;
+        }
+
+        /* Active link color */
+        .navbar ul li a.active {
+            background-color: #c62828;
+            border-radius: 5px;
+        }
+
+        /* Course Overview Styles */
+        .course-overview {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .course-overview h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .course-filter {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .course-filter input {
+            padding: 10px;
+            width: 200px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .course-filter button {
+            padding: 10px;
+            background-color: #74ebd5;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-gap: 20px;
+        }
+
+        .course-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .course-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .course-content {
+            padding: 15px;
+        }
+
+        .course-content h3 {
+            margin-bottom: 10px;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .course-content p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .completion {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .badge {
+            background-color: #74ebd5;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">Dashboard</div>
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="courses.html" class="active">My Courses</a></li>
+            <li><a href="help.html">Help</a></li>
+        </ul>
+        <div class="search-icon">
+            <input type="text" placeholder="Search">
+            <button><img src="search-icon.png" alt="search icon" style="width: 16px; height: 16px;"></button> <!-- Adjusted image size if using an icon -->
+        </div>
+    </nav>
+
+    <div class="course-overview">
+        <h1>Course Overview</h1>
+
+        <div class="course-filter">
+            <input type="text" placeholder="Search">
+            <button>Sort by course name</button>
+        </div>
+
+        <div class="course-grid">
+            <!-- Course Card 1 -->
+            <div class="course-card">
+                <img src="course-image1.jpg" alt="Course Image 1">
+                <div class="course-content">
+                    <h3>#include 2024 TEAM FORMATION</h3>
+                    <p>BTECH</p>
+                    <div class="completion">0% complete</div>
+                </div>
+            </div>
+
+            <!-- Course Card 2 -->
+            <div class="course-card">
+                <img src="course-image2.jpg" alt="Course Image 2">
+                <div class="course-content">
+                    <h3>2023-24 EVEN SEM SDP</h3>
+                    <p>KL-VJY</p>
+                    <div class="completion">0% complete</div>
+                </div>
+            </div>
+
+            <!-- Course Card 3 -->
+            <div class="course-card">
+                <img src="course-image3.jpg" alt="Course Image 3">
+                <div class="course-content">
+                    <h3>Cloud Infrastructure and Services</h3>
+                    <p>2023-2024 Summer Term</p>
+                    <div class="completion">0% complete</div>
+                </div>
+            </div>
+
+            <!-- Add more course cards as needed -->
+        </div>
+    </div>
+
+</body>
+</html>

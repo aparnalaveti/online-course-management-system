@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard with Timeline and Right-Side Navigation</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f9;
+        }
+
+        /* Navbar Container */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            padding: 15px 20px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        /* Logo */
+        .navbar .logo {
+            font-size: 24px;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Navbar links */
+        .navbar ul {
+            list-style: none;
+            display: flex;
+        }
+
+        .navbar ul li {
+            margin-left: 30px;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            padding: 8px 15px;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar ul li a:hover {
+            background-color: #555;
+            border-radius: 5px;
+        }
+
+        /* Search Icon */
+        .navbar .search-icon {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .search-icon input {
+            padding: 7px;
+            border: none;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        .navbar .search-icon button {
+            background-color: #74ebd5;
+            border: none;
+            color: white;
+            padding: 8px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar .search-icon button:hover {
+            background-color: #54d0b3;
+        }
+
+        .navbar .search-icon img {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Active link color */
+        .navbar ul li a.active {
+            background-color: #c62828;
+            border-radius: 5px;
+        }
+
+        /* Right-side Navigation Container */
+        .right-nav {
+            background-color: white;
+            border: 1px solid #ddd;
+            width: 300px;
+            padding: 20px;
+            margin: 20px;
+            position: fixed;
+            right: 0;
+            top: 80px;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .right-nav h3 {
+            color: #c62828;
+            margin-bottom: 10px;
+        }
+
+        .right-nav ul {
+            list-style-type: none;
+        }
+
+        .right-nav ul li {
+            margin-bottom: 8px;
+        }
+
+        .right-nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 14px;
+            padding: 8px 10px;
+            display: block;
+            transition: background-color 0.3s ease;
+            border-radius: 5px;
+        }
+
+        .right-nav ul li a:hover {
+            background-color: #eee;
+        }
+
+        .right-nav ul li ul {
+            margin-left: 20px;
+        }
+
+        .right-nav ul li ul li {
+            margin-bottom: 5px;
+        }
+
+        /* Timeline Container */
+        .timeline-container {
+            width: 70%;
+            margin: 120px auto 40px; /* Adjusted margin-top to start after navbar */
+        }
+
+        .timeline-header {
+            background-color: #eee;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 5px;
+        }
+
+        .timeline-header h2 {
+            font-size: 18px;
+            color: #c62828;
+        }
+
+        .filter-button {
+            background-color: #8bc34a;
+            border: none;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .timeline-item {
+            background-color: white;
+            margin-top: 20px;
+            padding: 20px;
+            border-left: 5px solid #c62828;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .timeline-item h3 {
+            color: #555;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .timeline-item .course {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .timeline-item .action {
+            font-weight: bold;
+            color: #c62828;
+        }
+
+        .timeline-item .sub-action {
+            color: #00bfa5;
+        }
+
+        .timeline-item .time {
+            color: #999;
+        }
+
+        .icon {
+            font-size: 24px;
+            color: #555;
+            margin-right: 10px;
+        }
+
+        /* Icons */
+        .icon-quiz {
+            background-color: #bdbdbd;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .icon-certification {
+            background-color: #ff4081;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">Dashboard</div>
+        <ul>
+            <li><a href="home.html" class="active">Home</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="courses.html">My Courses</a></li>
+            <li><a href="help.html">Help</a></li>
+        </ul>
+        <div class="search-icon">
+            <input type="text" placeholder="Search">
+            <button><img src="img/search-icon.png" alt="search icon"></button>
+        </div>
+    </nav>
+
+    <!-- Timeline Section -->
+    <div class="timeline-container">
+        <div class="timeline-header">
+            <h2><span class="icon">❉</span>Timeline</h2>
+            <button class="filter-button">Filter</button>
+        </div>
+
+        <!-- Timeline Items -->
+        <div class="timeline-item">
+            <div class="left">
+                <div class="icon icon-quiz">📝</div>
+            </div>
+            <div class="details">
+                <h3>Sunday, 13 October 2024</h3>
+                <p class="course">SOFTWARE PROJECT MANAGEMENT 2024-2025 ODD SEMESTER</p>
+                <p class="action">QUIZ CLOSES</p>
+                <p class="sub-action">ATTEMPT QUIZ NOW</p>
+            </div>
+            <div class="time">11:30</div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="left">
+                <div class="icon icon-certification">📋</div>
+            </div>
+            <div class="details">
+                <h3>Saturday, 30 November 2024</h3>
+                <p class="course">SOFTWARE PROJECT MANAGEMENT 2024-2025 ODD SEMESTER</p>
+                <p class="action">COMPLETE THE CERTIFICATION IS DUE</p>
+                <p class="sub-action">ADD SUBMISSION</p>
+            </div>
+            <div class="time">00:00</div>
+        </div>
+    </div>
+
+    <!-- Right-side Navigation -->
+    <div class="right-nav">
+        <h3>Navigation</h3>
+        <ul>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="home.html">Site Home</a></li>
+            <li><a href="courses.html">My Courses</a>
+                <ul>
+                    <li><a href="#">COHORTE16SDP</a></li>
+                    <li><a href="#">include2024</a></li>
+                    <li><a href="#">SOFT-22SMD3204M 2024-2025</a></li>
+                    <li><a href="#">SOFT-22SMD3101R 2024-2025</a></li>
+                    <li><a href="#">CRYP-22CS2247F 2024-2025</a></li>
+                    <li><a href="#">CLOUD-22CS223F 2023-2024</a></li>
+                    <li><a href="#">TECH-22EI3041 2023-2024</a></li>
+                    <li><a href="#">ENTE-22CI3004R 2023-2024</a></li>
+                    <li><a href="#">JAVA-22SDC503R 2024-2025</a></li>
+                    <li><a href="#">ESSE-22UC2103 2023-2024</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+</body>
+</html>

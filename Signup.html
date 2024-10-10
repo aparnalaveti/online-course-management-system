@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <style>
+        /* General reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body and background */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #74ebd5, #acb6e5);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Main container for form */
+        .container {
+            background-color: #ffffff;
+            width: 400px;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: 0.3s ease;
+        }
+
+        /* Hover effect on the box */
+        .container:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Form title */
+        h1 {
+            margin-bottom: 30px;
+            font-size: 26px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Role dropdown styling */
+        .role-selection {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: #f4f4f4;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+
+        /* Form input styling */
+        .form input {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+            font-size: 16px;
+            transition: border-color 0.2s;
+        }
+
+        /* Hover effect for input fields */
+        .form input:focus {
+            border-color: #74ebd5;
+            outline: none;
+        }
+
+        /* Submit button styling */
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #74ebd5;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #54d0b3;
+        }
+
+        /* Form switch link styling */
+        .switch-form {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .switch-form a {
+            color: #74ebd5;
+            font-weight: bold;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .switch-form a:hover {
+            color: #54d0b3;
+        }
+
+        /* Media query for responsiveness */
+        @media (max-width: 500px) {
+            .container {
+                width: 90%;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Signup Form -->
+        <form id="signup-form" class="form">
+            <h1>Sign Up</h1>
+            <div class="role-selection">
+                <label for="role-signup">Select Role:</label>
+                <select id="role-signup" name="role-signup">
+                    <option value="admin">Admin</option>
+                    <option value="faculty">Faculty</option>
+                    <option value="student">Student</option>
+                </select>
+            </div>
+
+            <input type="text" id="name" name="name" placeholder="Full Name" required>
+            <input type="text" id="id" name="id" placeholder="ID" required>
+            <input type="email" id="signup-email" name="signup-email" placeholder="Email" required>
+            <input type="password" id="signup-password" name="signup-password" placeholder="Password" required>
+            <input type="password" id="confirm-password" name="confirm-password" placeholder="Retype Password" required>
+
+            <button type="submit" class="submit-btn">Sign Up</button>
+            <p class="switch-form">
+                Already have an account? <a href="index.html" id="login-link">Log in</a>
+            </p>
+        </form>
+    </div>
+
+</body>
+</html>

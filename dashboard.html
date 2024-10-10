@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Navbar</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f9;
+        }
+
+        /* Navbar Container */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            padding: 15px 20px;
+        }
+
+        /* Logo */
+        .navbar .logo {
+            font-size: 24px;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Navbar links */
+        .navbar ul {
+            list-style: none;
+            display: flex;
+        }
+
+        .navbar ul li {
+            margin-left: 30px;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            padding: 8px 15px;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar ul li a:hover {
+            background-color: #555;
+            border-radius: 5px;
+        }
+
+        /* Search Icon */
+        .navbar .search-icon {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .search-icon input {
+            padding: 7px;
+            border: none;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        .navbar .search-icon button {
+            background-color: #74ebd5;
+            border: none;
+            color: white;
+            padding: 8px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar .search-icon button:hover {
+            background-color: #54d0b3;
+        }
+
+        .navbar .search-icon img {
+            width: 16px; /* Reduce the width */
+            height: 16px; /* Reduce the height */
+        }
+
+        /* Active link color */
+        .navbar ul li a.active {
+            background-color: #c62828;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">Dashboard</div>
+        <ul>
+            <li><a href="home.html" >Home</a></li>
+            <li><a href="dashboard.html" class="active">Dashboard</a></li>
+            <li><a href="courses.html">My Courses</a></li>
+            <li><a href="help.html">Help</a></li>
+        </ul>
+        <div class="search-icon">
+            <input type="text" placeholder="Search">
+            <button><img src="search-icon.png" alt="search icon"></button>
+        </div>
+    </nav>
+
+</body>
+</html>
